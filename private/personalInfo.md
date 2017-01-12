@@ -2,7 +2,7 @@
 ## 密码
 ### strong
 * AppleID
-* windows accounts
 ### normal
 * apple account
+* windows accounts
 * others
