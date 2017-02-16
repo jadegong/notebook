@@ -13,3 +13,7 @@ history | awk '{cmd[$2]++} END{for(i in cmd) print cmd[i],"......",i}' | sort -r
 ```shell
 mongo 127.0.0.1/dbname -uuser -ppassword
 ```
+- golang测试命令
+```shell
+go test -v $PackageName -run ^FuncName$
+```
