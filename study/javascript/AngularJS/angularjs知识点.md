@@ -9,12 +9,12 @@
    // Recompiling so we can bind Angular directive to the DT
    $compile(angular.element(row).contents())($scope);
    .withOption('headerCallback', function(header) {
-   if (!vm.headerCompiled) {
-      // Use this headerCompiled field to only compile header once
-      vm.headerCompiled = true;
-      $compile(angular.element(header).contents())($scope);
-   }
-})
+       if (!vm.headerCompiled) {
+          // Use this headerCompiled field to only compile header once
+          vm.headerCompiled = true;
+          $compile(angular.element(header).contents())($scope);
+       }
+    })
 })
 ```
 - 在Angular-datatables中，如果使用ng-repeat，并且行内有点击事件改变行内变量的值，使用``dtInstance.rerender()``重新渲染datatables；rerender有时会请求数据多次或者改变表的界面，当有后端数据时使用``dtInstance.reloadData()``来刷新表。

@@ -20,6 +20,6 @@
     </tr>
     <tr>
         <td>``VOLUME /data``中/data的具体含义？</td>
-        <td>``docker run -v /dir:/data ...`` 表示将宿主/dir目录挂载到容器的/data上--[具体参考](http://dockone.io/article/128)</td>
+        <td>``docker run -v /dir:/data ...`` 中-v参数表示将宿主/dir目录挂载到容器的/data上--[具体参考](http://dockone.io/article/128)</td>
     </tr>
 </table>
