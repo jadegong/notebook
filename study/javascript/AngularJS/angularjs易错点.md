@@ -1,20 +1,25 @@
-# AngularJS知识点
+# AngularJS易错点
 [TOC]
 ## AngularJS常见错误
 - 在开发中遇见controller不起作用的情况，先检查是否有controller重名的情况。
 - 在Angular表单验证中，必须绑定ng-model之后，formName.inputFieldName.$dirty等值才会定义
 - 在Angular-datatables中，如果renderWith中的html有angular指令，那么需要在dtOptions中添加下面两个options进行重新编译
+
 ``` javascript
 .withOption('createdRow', function(row, data, dataIndex) {
    // Recompiling so we can bind Angular directive to the DT
    $compile(angular.element(row).contents())($scope);
-   .withOption('headerCallback', function(header) {
-       if (!vm.headerCompiled) {
-          // Use this headerCompiled field to only compile header once
-          vm.headerCompiled = true;
-          $compile(angular.element(header).contents())($scope);
-       }
-    })
+})
+```
+- 在Angular-datatables中，当需要在标题栏中进行全选等点击绑定，需要对options进行如下配置
+
+```javascript
+.withOption('headerCallback', function(header) {
+   if (!vm.headerCompiled) {
+      // Use this headerCompiled field to only compile header once
+      vm.headerCompiled = true;
+      $compile(angular.element(header).contents())($scope);
+   }
 })
 ```
 - 在Angular-datatables中，如果使用ng-repeat，并且行内有点击事件改变行内变量的值，使用``dtInstance.rerender()``重新渲染datatables；rerender有时会请求数据多次或者改变表的界面，当有后端数据时使用``dtInstance.reloadData()``来刷新表。

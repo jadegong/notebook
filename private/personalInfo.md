@@ -1,7 +1,8 @@
 # 私人信息
 ## 密码
-### strong
+### strong(JADExxxxxxxxgong)
 * Just AppleID
+
 ### normal
 * apple account
 * windows accounts
