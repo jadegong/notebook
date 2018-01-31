@@ -1,8 +1,9 @@
 # git reset, checkout, revert 使用区别
 ## commit层面
-``git reset``和``git checkout``的参数决定了它们的作用域。如果没有包含文件路径，便会在提交层面生效。
+``git reset`` 和 ``git checkout`` 的参数决定了它们的作用域。如果没有包含文件路径，便会在提交层面生效。
 ### reset
 在提交层面，``git reset``将一个分支的末端指向另一个提交。意思就是将该分支回滚，而且不保留回滚目标之后的提交，可以用来移除当前分支的一些提交，例如舍弃branchName分支的最后两个提交：
+
 ```shell
 git checkout branchName
 git reset HEAD~2
@@ -15,6 +16,7 @@ git reset HEAD~2
 由于``git reset``会舍弃部分分支提交，所以__不适合在主分支上进行操作__
 ### checkout
 ``git checkout``传入分支名时，会切换当前工作目录至指定的分支，不会修改分支。例如切换工作目录至两个版本前：
+
 ```shell
 git checkout HEAD~2
 ```
@@ -22,6 +24,7 @@ git checkout HEAD~2
 revert的作用也是将分支回滚到之前的指定版本，与reset不同的是，revert会新建一个修改至指定版本，然后提交，意思就是不会舍弃之前的修改，通过添加一个修改提交，来进行版本回滚。
 ![](http://7xnyb9.com1.z0.glb.clouddn.com/git-revert.svg)
 例如将版本回滚至两个版本之前，并保留所有修改：
+
 ```shell
 git checkout branchName
 git revert HEAD~2
@@ -30,6 +33,7 @@ git revert HEAD~2
 ``git reset``和``git checkout``命令如果检测到文件路径参数，行为会作用于指定的文件。
 ### reset
 当参数为文件路径时，``git reset``将缓存区同步到你指定的那个版本的提交（不会影响工作目录）。例如将倒数第二个提交的demo.json加入到缓存区：
+
 ```shell
 git reset HEAD~2 demo.json
 ```

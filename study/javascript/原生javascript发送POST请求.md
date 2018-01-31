@@ -4,6 +4,7 @@
 最近在开发一个展示数据图表的网站，由于网站没有太多的DOM操作，于是并没有使用jQuery库；在网站开发过程中，需要进行数据请求，然而在使用js进行数据请求时，发生了一些错误——由于未将发送的数据进行编码，所以导致服务器接收错误。
 ## 解决方案
 正确的请求方法如下：
+
 ``` javascript
 function sendData() {//默认参数为：url, data
 	var args = Array.prototype.slice.call(arguments);
