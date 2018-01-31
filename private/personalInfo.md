@@ -1,7 +1,9 @@
 # 私人信息
 ## 密码
 ### strong
-* Just AppleID
+* AppleID
+* steamID
+* sina email
 ### normal
 * apple account
 * windows accounts
